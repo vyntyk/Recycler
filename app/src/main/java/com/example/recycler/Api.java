@@ -4,9 +4,11 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 
 public interface Api {
-    @GET("/")
+    @Headers("Content-Type: application/json")
+    @GET("v1/cases?country=Russia")
     Call< List <Get>> getGet();
 
 }

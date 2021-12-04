@@ -1,18 +1,18 @@
 package com.example.recycler;
 
 public class Get {
-    private String confirmed;
-    private String deaths;
+    private int confirmed;
+    private int deaths;
 
-    public String getConfirmed() {
+    public int getConfirmed() {
         return confirmed;
     }
 
-    public String getDeaths() {
+    public int getDeaths() {
         return deaths;
     }
 
-    public Get(String confirmed, String deaths) {
+    public Get(int confirmed, int deaths) {
         this.confirmed = confirmed;
         this.deaths = deaths;
     }

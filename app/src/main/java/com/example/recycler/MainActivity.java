@@ -1,7 +1,6 @@
 package com.example.recycler;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,12 +22,12 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar progressBar;
     LinearLayoutManager layoutManager;
     PostsAdapter postsAdapter;
-    List<Get> postsList = new ArrayList<>();
+    List < Get > postsList = new ArrayList <>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.list_item);
         recyclerView = findViewById(R.id.recyclerView);
         progressBar = findViewById(R.id.progressBar);
         layoutManager = new LinearLayoutManager(this);
@@ -39,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
         fetchGet();
     }
 
-    private void fetchGet(){
+    private void fetchGet() {
         progressBar.setVisibility(View.VISIBLE);
         RetrofitClient.getRetrofitClient().getGet().enqueue(new Callback < List < Get > >() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(Call < List < Get > > call, Response < List < Get > > response) {
-                if(response.isSuccessful()&&response.body() != null){
+                if (response.isSuccessful() && response.body() != null) {
                     postsList.addAll(response.body());
                     postsAdapter.notifyDataSetChanged();
                     progressBar.setVisibility(View.GONE);
@@ -56,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call < List < Get > > call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(MainActivity.this, "Error: " +  t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
