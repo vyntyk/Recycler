@@ -7,8 +7,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 
 public interface Api {
-    @Headers("Content-Type: application/json")
-    @GET("v1/cases?country=Russia")
+
+    @GET("/posts")
     Call< List <Get>> getGet();
 
 }

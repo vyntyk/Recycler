@@ -12,7 +12,7 @@ import java.util.List;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
 
-    private List<Get> postsList;
+    private final List<Get> postsList;
 
     public PostsAdapter(List < Get > postsList) {
         this.postsList = postsList;
@@ -29,8 +29,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvTitle.setText(postsList.get(position).getConfirmed());
-        holder.tvBody.setText(postsList.get(position).getDeaths());
+        holder.tvTitle.setText(postsList.get(position).getTitle());
+        holder.tvBody.setText(postsList.get(position).getBody());
 
     }
 
