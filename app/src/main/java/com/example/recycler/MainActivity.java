@@ -1,5 +1,6 @@
 package com.example.recycler;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar progressBar;
     LinearLayoutManager layoutManager;
     PostsAdapter postsAdapter;
-    List < Get > postsList = new ArrayList <>();
+    List < Posts > postsList = new ArrayList <>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +41,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void fetchGet() {
         progressBar.setVisibility(View.VISIBLE);
-        RetrofitClient.getRetrofitClient().getGet().enqueue(new Callback < List < Get > >() {
+        RetrofitClient.getRetrofitClient().getPosts().enqueue(new Callback < List < Posts > >() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
-            public void onResponse(Call < List < Get > > call, Response < List < Get > > response) {
+            public void onResponse(Call < List < Posts > > call, @NonNull Response < List < Posts > > response) {
                 if (response.isSuccessful() && response.body() != null) {
                     postsList.addAll(response.body());
                     postsAdapter.notifyDataSetChanged();
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call < List < Get > > call, Throwable t) {
+            public void onFailure(Call < List < Posts > > call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
 

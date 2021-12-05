@@ -1,8 +1,13 @@
 package com.example.recycler;
 
-public class Get {
+public class Posts {
     private String title;
     private String body;
+
+    public Posts(String title, String body) {
+        this.title = title;
+        this.body = body;
+    }
 
     public String getTitle() {
         return title;
@@ -10,11 +15,6 @@ public class Get {
 
     public String getBody() {
         return body;
-    }
-
-    public Get(String confirmed, String deaths) {
-        this.title = confirmed;
-        this.body = deaths;
     }
 
 }
