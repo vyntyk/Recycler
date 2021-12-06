@@ -1,8 +1,8 @@
 package com.example.recycler;
 
 public class Posts {
-    private String title;
-    private String body;
+    private final String title;
+    private final String body;
 
     public Posts(String title, String body) {
         this.title = title;
